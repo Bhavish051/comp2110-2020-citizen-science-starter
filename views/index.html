@@ -34,6 +34,13 @@
           </hgroup>
       
           <div id="target"></div>
+          <div id="Observations">
+            <h2>Recent Observations</h2>
+          </div>
+          <div id="UsersView">
+            <h2>Users</h2>
+          </div>
+
 
       </div>
     </div>
@@ -60,5 +67,12 @@
 
   <!-- Templates -->
 
+  <script id="listUsers" type="text/x-handlebars-template">
+    <ul>
+      {{#each user}}
+      <li>{{first_name}} {{last_name}}</li>
+      {{/each}}
+    </ul>
+  </script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+import * as views from './views.js';
+import {Model} from './model.js';
 
 function redraw() { 
 
@@ -10,10 +12,16 @@ function redraw() {
 
     // update the page
     document.getElementById("target").innerHTML = content;
+
+    let data = Model.data.users;
+    console.log(data);
+    views.listAllUsers({'users': data});
 }
+
 
 window.onload = function() {
     redraw();
+    Model.update_users;
 };
 
 

@@ -25,9 +25,21 @@ const Model = {
     // when the request is resolved, creates a "modelUpdated" event 
     // with the model as the event detail
     update_users: function() {
-        .fetch
+        fetch(this.data)
+        .then(
             function(response)
-            return response;
+            {
+                return response.json();
+            }
+        )
+        .then(
+            (data) =>
+            {
+                this.data.users = data;
+                let event = new CustomEvent("modelUpdated");
+                window.dispatchEvent(event);
+            }
+        )
         
     },
 
@@ -36,7 +48,21 @@ const Model = {
     // when the request is resolved, creates a "modelUpdated" event 
     // with the model as the event detail
     update_observations: function() {
-        
+        fetch
+        .then(
+            function(response)
+            {
+                return response.json();
+            }
+        )
+        .then(
+            (data) =>
+            {
+                this.data.observations = data;
+                let event = new CustomEvent("modelUpdated");
+                window.dispatchEvent(event);
+            }
+        );
     },
 
     // get_observations - return an array of observation objects
@@ -46,7 +72,7 @@ const Model = {
 
     // get_observation - return a single observation given its id
     get_observation: function(observationid) {
-        
+
     },
  
     set_observations: function(observations) {
