@@ -25,9 +25,10 @@ const Model = {
     // when the request is resolved, creates a "modelUpdated" event 
     // with the model as the event detail
     update_users: function() {
-        .fetch(
-            
-        )
+        .fetch
+            function(response)
+            return response;
+        
     },
 
     // update_observations - retrieve the latest list of observations
